@@ -1,4 +1,4 @@
-import logo from './holberton-logo.jpg';
+import logo from './holbertonLogo.jpg';
 import './App.css';
 import { getFullYear, getFooterCopy } from './utils.js';
 
@@ -11,11 +11,6 @@ function App() {
       </header>
       <div className="App-body">
         <p>Login to access the full dashboard</p>
-        <label>Email:</label>
-        <input type="email" id="email" />
-        <label>Password:</label>
-        <input type="password" id="password"></input>
-        <button className='ok'>OK</button>
       </div>
       <footer className="App-footer">
         <p>Copyright {getFullYear()} - {getFooterCopy(true)}</p>
