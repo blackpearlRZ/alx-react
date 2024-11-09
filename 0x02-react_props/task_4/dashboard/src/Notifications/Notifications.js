@@ -1,8 +1,8 @@
 
 import React from 'react';
 import './Notifications.css';
-import closeIcon from '../assets/close-icon.png';
-import NotificationItem from './NotificationItem';
+import closeIcon from '../assests/close-icon.png';
+import NotificationItem from './NotificationsItem';
 import { getLatestNotification } from '../utils/utils'
 
 const Notifications = () => {

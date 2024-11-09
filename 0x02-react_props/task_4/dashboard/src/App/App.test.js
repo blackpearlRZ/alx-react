@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
@@ -6,6 +5,7 @@ import Notifications from '../Notifications/Notifications';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import CourseList from '../CourseList/CourseList';
 
 
 describe('<App />', () => {
@@ -46,5 +46,23 @@ describe('<App />', () => {
     it('renders a Header component', () => {
         const wrapper = shallow(<App />);
         expect(wrapper.find(Header).exists()).toBe(true);
+    });
+
+    it('CourseList not displayed', () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper.find(CourseList).exists()).toBe(false);
+    });
+});
+
+
+describe('when isLoggedIn is true', () => {
+    it('Login not included', () => {
+        const wrapper = shallow(<App isLoggedIn={true} />);
+        expect(wrapper.find(Login).exists()).toBe(false);
+    });
+
+    it('CourseList included', () => {
+        const wrapper = shallow(<App isLoggedIn={true} />);
+        expect(wrapper.find(CourseList).exists()).toBe(true);
     });
 });
