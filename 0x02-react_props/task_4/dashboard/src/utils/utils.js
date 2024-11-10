@@ -12,5 +12,5 @@ const getFooterCopy = (isIndex) => {
 const getLatestNotification = () => {
     return "<strong>Urgent requirement</strong> - complete by EOD";
 }
-
-export { getFullYear, getFooterCopy, getLatestNotification }
+export default getLatestNotification
+export { getFullYear, getFooterCopy}
