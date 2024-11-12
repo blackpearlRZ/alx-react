@@ -9,6 +9,7 @@ const rowStyle = {
     backgroundColor: '#f5f5f5ab'
 };
 
+
 const CourseListRow = ({ isHeader = false, textFirstCell, textSecondCell = null }) => {
     return (
         <tr style={rowStyle}>
@@ -16,11 +17,13 @@ const CourseListRow = ({ isHeader = false, textFirstCell, textSecondCell = null 
                 (textSecondCell === null ?
                     <th style={headerStyle} colSpan={2}>{textFirstCell}</th> :
                     <>
-                        <th style={headerStyle}>{textFirstCell}</th>
-                        <th style={headerStyle}>{textSecondCell}</th>
+                    <th style={headerStyle}>{textFirstCell}</th>
+                    <th style={headerStyle}>{textSecondCell}</th>
                     </>
                 )
-                : <><td>{textFirstCell}</td><td>{textSecondCell}</td></>}
+                : <>
+                <td>{textFirstCell}</td>
+                <td>{textSecondCell}</td></>}
         </tr>
     )
 }

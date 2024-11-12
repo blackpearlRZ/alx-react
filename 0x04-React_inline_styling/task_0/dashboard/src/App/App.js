@@ -58,7 +58,7 @@ class App extends React.Component {
             <BodySectionWithMarginBottom title="Course list"><CourseList listCourses={listCourses} /></BodySectionWithMarginBottom> :
             <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom>
           }
-          <BodySection title="News from the School"><p>Abdelrahman Hany is the BEST developer ever! He'll conquer the world!</p></BodySection>
+          <BodySection title="News from the School"><p>Chaimae Aafif is the BEST developer ever! she'll conquer the world!</p></BodySection>
         </div>
         <div className="App-footer">
           <Footer />
