@@ -11,8 +11,25 @@ import { getLatestNotification } from '../utils/utils';
 
 class App extends React.Component {
 
+  handleKeydown = (event) => {
+    if (event.ctrlKey && event.key === 'h') {
+      event.preventDefault();
+      alert('Logging you out');
+      this.props.logOut();
+    }
+  };
+
   constructor(props) {
     super(props);
+    this.handleKeydown = this.handleKeydown.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeydown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeydown);
   }
 
   render() {
@@ -47,10 +64,12 @@ class App extends React.Component {
 
 App.defaultProps = {
   isLoggedIn: false,
+  logOut: () => { }
 };
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func
 };
 
 

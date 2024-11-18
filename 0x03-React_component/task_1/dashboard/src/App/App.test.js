@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import App from './App';
 import Notifications from '../Notifications/Notifications';
 import Login from '../Login/Login';
@@ -8,7 +9,7 @@ import Header from '../Header/Header';
 import CourseList from '../CourseList/CourseList';
 
 
-describe('<App/>', () => {
+describe('<App />', () => {
     it('all of App renders', () => {
         shallow(<App />);
     });
@@ -64,5 +65,21 @@ describe('when isLoggedIn is true', () => {
     it('CourseList included', () => {
         const wrapper = shallow(<App isLoggedIn={true} />);
         expect(wrapper.find(CourseList).exists()).toBe(true);
+    });
+});
+
+describe("Test <App /> with logOut function", () => {
+    // verify that when the keys control and h are pressed the logOut function,
+    // passed as a prop, is called and the alert function is called with the string Logging you out
+    it("calls the logOut function and displays the alert", () => {
+        const logOutSpy = jest.fn();
+        const alertMock = jest.spyOn(global, 'alert').mockImplementation(() => { });
+        const wrapper = mount(<App logOut={logOutSpy} isLoggedIn={true} />);
+        const event = new KeyboardEvent('keydown', { key: 'h', ctrlKey: true });
+        document.dispatchEvent(event);
+        expect(alertMock).toHaveBeenCalledWith('Logging you out');
+        expect(logOutSpy).toHaveBeenCalled();
+        wrapper.unmount();
+        jest.restoreAllMocks();
     });
 });
