@@ -8,7 +8,7 @@ import Header from '../Header/Header';
 import CourseList from '../CourseList/CourseList';
 
 
-describe('<App />', () => {
+describe('<App/>', () => {
     it('all of App renders', () => {
         shallow(<App />);
     });
