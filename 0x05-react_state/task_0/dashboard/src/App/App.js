@@ -1,6 +1,5 @@
-
 import React, { Component } from "react";
-import Notifications from "../Notifications/Notifications";
+import Notifications from '../Notifications/Notifications'
 import Header from "../Header/Header";
 import BodySection from "../BodySection/BodySection";
 import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
@@ -9,7 +8,7 @@ import CourseList from "../CourseList/CourseList";
 import Footer from "../Footer/Footer";
 import PropTypes from "prop-types";
 import { getLatestNotification } from "../utils/utils";
-import {StyleSheet, css} from "aphrodite"
+import { StyleSheet, css } from "aphrodite";
 
 const listCourses = [
   { id: 1, name: "ES6", credit: 60 },
@@ -61,6 +60,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.handleKeydown = this.handleKeydown.bind(this);
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this)
+    this.handleHideDrawer = this.handleHideDrawer.bind(this)
+    this.state = {displayDrawer: false}
+  }
+  handleDisplayDrawer(){
+    this.setState({displayDrawer : true})
+  }
+
+  handleHideDrawer(){
+    this.setState({displayDrawer : true})
   }
 
   handleKeydown = (event) => {
