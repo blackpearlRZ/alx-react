@@ -5,7 +5,7 @@ import NotificationItem from './NotificationsItem';
 import { getLatestNotification } from '../utils/utils';
 import PropTypes from 'prop-types';
 
-const Notifications = ({ displayDrawer = false }) => {
+const Notifications = ({ displayDrawer = true }) => {
     return (
         <>
             <div className='menuItem'>
