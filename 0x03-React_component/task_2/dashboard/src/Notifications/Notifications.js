@@ -5,8 +5,13 @@ import NotificationItem from './NotificationsItem';
 import { getLatestNotification } from '../utils/utils';
 import PropTypes from 'prop-types';
 
-const Notifications = ({ displayDrawer = false }) => {
-    return (
+class Notifications extends React.Component{
+    constructor(props){
+        super(props)
+
+    }
+    render(){
+        return (
         <>
             <div className='menuItem'>
                 <p>Your notifications</p>
@@ -34,8 +39,12 @@ const Notifications = ({ displayDrawer = false }) => {
                 </div >
             }
         </>
-    );
+    );}
 };
+Notifications.defaultProps = {
+    displayDrawer : false,
+    listNotifications : []
+}
 
 Notifications.propTypes = {
     displayDrawer: PropTypes.bool
