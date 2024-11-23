@@ -4,6 +4,7 @@ import App from './App';
 import Notifications from '../Notifications/Notifications';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 import CourseList from '../CourseList/CourseList';
 
 
