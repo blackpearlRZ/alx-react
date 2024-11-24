@@ -6,21 +6,34 @@ import NotificationItem from './NotificationItem';
 import PropTypes from 'prop-types';
 import NotificationItemShape from './NotificationItemShape';
 
-const Notifications = ({ displayDrawer = false, listNotifications = [] }) => {
-    return (
+class Notifications extends React.Component {
+    constructor(props){
+        super(props)
+        this.markAsRead = this.markAsRead.bind(this)
+    }
+    markAsRead(id){
+        console.log(`Notification ${id} has been marked as read`)
+    }
+    render() {
+        return (
         <>
             <div className='menuItem'>
                 <p>Your notifications</p>
             </div>
-            {displayDrawer &&
+            {this.props.displayDrawer &&
                 <div className='Notifications'>
                     <ul>
-                        {listNotifications.length === 0 ?
+                        {this.props.listNotifications.length === 0 ?
                             <NotificationItem type='default' value="No new notification for now" /> :
                             <>
                                 <p>Here is the list of notifications</p>
-                                {listNotifications.map((notifiction) => {
-                                    return <NotificationItem key={notifiction.id} type={notifiction.type} value={notifiction.value} html={notifiction.html} />
+                                {this.props.listNotifications.map((notifiction) => {
+                                    return <NotificationItem 
+                                    id = {notifiction.id}
+                                    key={notifiction.id} 
+                                    type={notifiction.type}
+                                     value={notifiction.value} 
+                                     html={notifiction.html} />
                                 })}
                             </>
                         }
@@ -40,8 +53,14 @@ const Notifications = ({ displayDrawer = false, listNotifications = [] }) => {
                 </div >
             }
         </>
-    );
+    );}
 };
+
+Notifications.defaultProps = {
+    displayDrawer: false,
+    listNotifications: [],
+};
+
 
 Notifications.propTypes = {
     displayDrawer: PropTypes.bool,
