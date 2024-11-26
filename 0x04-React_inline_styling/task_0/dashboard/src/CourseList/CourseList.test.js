@@ -16,7 +16,7 @@ describe('<CourseList />', () => {
 
     it('renders properly when no data is passed', () => {
         const wrapper = shallow(<CourseList listCourses={[]} />);
-        expect(wrapper.find(CourseListRow).at(2).dive().text()).toContain('No course available yet');
+        expect(wrapper.find(CourseListRow).at(2).html()).toContain('No course available yet');
     });
 
     it('renders properly when data is passed', () => {
@@ -27,9 +27,8 @@ describe('<CourseList />', () => {
         ];
 
         const wrapper = shallow(<CourseList listCourses={listCourses} />);
-        // Check the text content of the CourseListRow components directly
-        expect(wrapper.find(CourseListRow).at(2).dive().text()).toContain('ES6');
-        expect(wrapper.find(CourseListRow).at(3).dive().text()).toContain('Webpack');
-        expect(wrapper.find(CourseListRow).at(4).dive().text()).toContain('React');
+        expect(wrapper.find(CourseListRow).at(2).html()).toContain('ES6');
+        expect(wrapper.find(CourseListRow).at(3).html()).toContain('Webpack');
+        expect(wrapper.find(CourseListRow).at(4).html()).toContain('React');
     });
 });

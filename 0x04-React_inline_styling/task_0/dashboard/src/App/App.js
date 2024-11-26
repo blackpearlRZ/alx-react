@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.css'
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
@@ -54,11 +54,9 @@ class App extends React.Component {
           <Header />
         </div>
         <div className="App-body">
-          {this.props.isLoggedIn ?
-            <BodySectionWithMarginBottom title="Course list"><CourseList listCourses={listCourses} /></BodySectionWithMarginBottom> :
-            <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom>
-          }
-          <BodySection title="News from the School"><p>Chaimae Aafif is the BEST developer ever! she'll conquer the world!</p></BodySection>
+          {this.props.isLoggedIn ? <BodySectionWithMarginBottom title = 'Course list'><CourseList listCourses={listCourses} /></BodySectionWithMarginBottom>: 
+          <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom>}
+          <BodySection title="News from the School"><p>Chaimae Aafif is the BEST developer ever! She'll conquer the world!</p></BodySection>
         </div>
         <div className="App-footer">
           <Footer />

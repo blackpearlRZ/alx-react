@@ -1,20 +1,17 @@
 import React from "react";
 import BodySection from "./BodySection";
-import "./BodySectionWithMarginBottom.css";
-
-
-class BodySectionWithMarginBottom extends React.Component {
-    constructor(props) {
-        super(props);
+import './BodySectionWithMarginBottom.css'
+class BodySectionWithMarginBottom extends React.Component{
+    constructor(props){
+        super(props)
     }
 
-    render() {
-        return (
+    render(){
+        return(
             <div className="bodySectionWithMargin">
-                <BodySection {...this.props} />
+                <BodySection{...this.props}/>
             </div>
-        );
+        )
     }
 }
-
-export default BodySectionWithMarginBottom;
+export default BodySectionWithMarginBottom

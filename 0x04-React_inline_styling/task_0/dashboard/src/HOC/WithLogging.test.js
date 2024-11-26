@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { mount, shallow, unmount } from 'enzyme';
 import { WithLogging } from './WithLogging';

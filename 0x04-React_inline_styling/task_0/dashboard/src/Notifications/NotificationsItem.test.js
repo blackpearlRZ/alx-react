@@ -1,12 +1,11 @@
-
 import React from "react";
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import NotificationItem from "./NotificationItem";
 
 
 describe('<NotificationItem />', () => {
     it('renders without crashing', () => {
-        shallow(<NotificationItem />);
+        shallow(<NotificationItem type="default" />);
     });
 
     it('renders correct data & value', () => {
@@ -16,7 +15,19 @@ describe('<NotificationItem />', () => {
     });
 
     it('renders correct html', () => {
-        const wrapper = shallow(<NotificationItem html={{ __html: '<u>test</u>' }} />);
-        expect(wrapper.find('li').html()).toBe('<li><u>test</u></li>');
-    })
+        const wrapper = shallow(<NotificationItem type="default" html={{ __html: '<u>test</u>' }} />);
+        // Check that the inner HTML is set correctly
+        expect(wrapper.find('li').prop('dangerouslySetInnerHTML')).toEqual({ __html: '<u>test</u>' });
+    });
+
+    it('prints correct message when clicked', () => {
+        const markAsRead = jest.fn();
+        const wrapper = mount(
+            <NotificationItem id={5} type="default" value="test" markAsRead={markAsRead} />
+        );
+
+        const notificationItem = wrapper.find(NotificationItem); // Find the component
+        notificationItem.find('li').prop('onClick')(); // Find the li element
+        expect(markAsRead).toHaveBeenCalledWith(5);
+    });
 });
