@@ -1,11 +1,32 @@
+
 import React from 'react';
-import './Notifications.css';
-import closeIcon from '../assests/close-icon.png'
+import closeIcon from '../assets/close-icon.png';
 import NotificationItem from './NotificationItem';
 import { getLatestNotification } from '../utils/utils';
 import PropTypes from 'prop-types';
 import NotificationItemShape from './NotificationItemShape';
+import { StyleSheet, css } from 'aphrodite';
 
+
+const styles = StyleSheet.create({
+    menuItem: {
+        position: "fixed",
+        right: "20px",
+        top: "20px",
+    },
+    notifications: {
+        margin: "10px 30px",
+        paddingLeft: "10px",
+        border: "1px dashed red",
+        position: "fixed",
+        top: "40px",
+        right: 0,
+    },
+    ul: {
+        margin: "20px",
+        marginLeft: "40px",
+    },
+});
 
 class Notifications extends React.Component {
     constructor(props) {
@@ -24,12 +45,12 @@ class Notifications extends React.Component {
     render() {
         return (
             <>
-                <div className='menuItem'>
+                <div className={css(styles.menuItem)}>
                     <p>Your notifications</p>
                 </div>
                 {this.props.displayDrawer &&
-                    <div className='Notifications'>
-                        <ul>
+                    <div className={css(styles.notifications)}>
+                        <ul className={css(styles.ul)}>
                             {this.props.listNotifications.length === 0 ?
                                 <NotificationItem markAsRead={this.markAsRead} type='default' value="No new notification for now" /> :
                                 <>

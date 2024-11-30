@@ -1,19 +1,12 @@
-
-#CourseList {
-    width: 100%;
-    text-align: left;
-    border: 1px solid lightgrey;
-}
-
-#CourseList th[colspan="2"] {
+th[colspan="2"] {
     text-align: center;
 }
 
-#CourseList th {
+th {
     border-bottom: 2px solid lightgray;
     font-size: 1rem;
 }
 
-#CourseList td {
+td {
     font-size: 1rem;
 }

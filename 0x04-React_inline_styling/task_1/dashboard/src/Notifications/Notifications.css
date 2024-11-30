@@ -1,22 +1,3 @@
-.menuItem {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-}
-
-.Notifications {
-    margin: 10px 30px;
-    padding-left: 10px;
-    border: 1px dashed red;
-    position: fixed;
-    top: 40px;
-    right: 0;
-}
-
-ul {
-    margin: 20px;
-    margin-left: 40px;
-}
 
 li[data="default"] {
     color: blue;
