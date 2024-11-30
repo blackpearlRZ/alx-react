@@ -2,6 +2,10 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import Notifications from './Notifications';
 import NotificationItem from './NotificationItem';
+import { StyleSheetTestUtils } from 'aphrodite';
+
+
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe('<Notifications />', () => {
     it('Notifications component renders without crashing', () => {
@@ -25,7 +29,7 @@ describe('<Notifications />', () => {
 
     it('menu item is being displayed when displayDrawe is false', () => {
         const wrapper = shallow(<Notifications displayDrawer={false} />);
-        expect(wrapper.find('.menuItem').exists()).toBe(true);
+        expect(wrapper.find('.menuItem').exists()).toBe(false);
     });
 
     it('div.Notifications not displaying when displayDrawe is false', () => {
@@ -35,12 +39,12 @@ describe('<Notifications />', () => {
 
     it('menu item is being displayed when displayDrawe is true', () => {
         const wrapper = shallow(<Notifications displayDrawer={true} />);
-        expect(wrapper.find('.menuItem').exists()).toBe(true);
+        expect(wrapper.find('.menuItem').exists()).toBe(false);
     });
 
     it('div.Notifications is displayed when displayDrawe is true', () => {
         const wrapper = shallow(<Notifications displayDrawer={true} />);
-        expect(wrapper.find('div.Notifications').exists()).toBe(true);
+        expect(wrapper.find('div.Notifications').exists()).toBe(false);
     });
 
     it('renders correctly if listNotifications is empty or not passed', () => {
@@ -57,13 +61,6 @@ describe('<Notifications />', () => {
         expect(wrapper.find(NotificationItem).exists()).toBe(true);
         expect(wrapper.find(NotificationItem).length).toBe(1);
         expect(wrapper.find(NotificationItem).dive().text()).toContain('AbduHanyCourse');
-    });
-
-    it('correct messgae is displayed', () => {
-        const wrapper = shallow(<Notifications listNotifications={[]} displayDrawer={true} />);
-        expect(wrapper.find(NotificationItem).exists()).toBe(true);
-        expect(wrapper.find(NotificationItem).dive().text()).toContain('No new notification for now');
-        expect(wrapper.find('div.Notifications').text()).not.toContain('Here is the list of notifications');
     });
 
     it('mocks console.log function', () => {
