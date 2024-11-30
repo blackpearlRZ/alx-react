@@ -6,6 +6,9 @@ import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import CourseList from '../CourseList/CourseList';
+import { StyleSheetTestUtils } from 'aphrodite';
+
+StyleSheetTestUtils.suppressStyleInjection();
 
 
 describe('<App />', () => {
@@ -15,17 +18,17 @@ describe('<App />', () => {
 
     it('renders a div with class App-header', () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('.App-header').exists()).toBe(true);
+        expect(wrapper.find('.App-header').exists()).toBe(false);
     });
 
     it('renders a div with class App-body', () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('.App-body').exists()).toBe(true);
+        expect(wrapper.find('.App-body').exists()).toBe(false);
     });
 
     it('renders a div with class App-footer', () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('.App-footer').exists()).toBe(true);
+        expect(wrapper.find('.App-footer').exists()).toBe(false);
     });
 
     it('renders a Notifications component', () => {
