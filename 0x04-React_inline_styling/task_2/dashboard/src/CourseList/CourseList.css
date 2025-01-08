@@ -1,0 +1,12 @@
+th[colspan="2"] {
+    text-align: center;
+}
+
+th {
+    border-bottom: 2px solid lightgray;
+    font-size: 1rem;
+}
+
+td {
+    font-size: 1rem;
+}
